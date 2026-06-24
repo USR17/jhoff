@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-webrecon.py — initial recon pipeline for web application pentests.
+jhoff.py — initial recon pipeline for web application pentests.
 
 Pipeline:
   1. Full TCP port discovery (nmap -p-) -> open_ports.txt
@@ -18,12 +18,12 @@ Gobuster wildcard handling:So
   the exclude set up front.
 
 Config:
-  Settings resolve with precedence: built-in defaults < webrecon.cfg < CLI.
+  Settings resolve with precedence: built-in defaults < jhoff.cfg < CLI.
   CLI flags left unset (None) do not override cfg values.
 
 Usage:
-    sudo ./webrecon.py <target> -w /path/to/dirlist.txt [-W /path/to/vhostlist.txt]
-    sudo ./webrecon.py <target> -c webrecon.cfg
+    sudo ./jhoff.py <target> -w /path/to/dirlist.txt [-W /path/to/vhostlist.txt]
+    sudo ./jhoff.py <target> -c jhoff.cfg
 
 Note: -A in nmap requires root for OS detection / raw socket operations.
 """
