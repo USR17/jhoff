@@ -10,49 +10,7 @@ dir_wordlist = "/usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directo
 vhost_wordlist = "/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
 
 [performance]
-rate = 1000              jhoff.cfg # nmap --min-rate for stage 1 full-port sweep
-workers = 4              # parallel web scans (ThreadPoolExecutor)
-gobuster_threads = 30    # gobuster -t per invocation; real load = workers * threads
-gobuster_timeout = 1800  # per-gobuster timeout (s); tarpit / hung-scan guard
-
-[gobuster]
-extensions = "php,html,txt"  # dir-mode extensions, comma-separated, no dots
-max_retries = 3              # wildcard/soft-404 retry bound
-skip_vhost = false
-
-# ---------------------------------------------------------------------------
-# Credentials — known-good only (no spray lists yet).
-# Add an entry per credential found/provided. Re-run the script after editing;
-# the script never writes here itself.
-#
-# Each [[cred]] requires: username, and EXACTLY ONE of password / nthash.
-# domain is optional (omit or "" => local account).
-#
-# NULL session: if zero [[cred]] entries exist, the script runs unauthenticated.
-# ---------------------------------------------------------------------------
-
-# [[cred]]
-# username = "administrator"
-# password = "Passw0rd!"
-# domain   = "CORP"
-
-# [[cred]]
-# username = "svc_backup"
-# nthash   = "aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0"
-# domain   = "CORP"
-# jhoff.toml — standing configuration for jhoff.py
-# Precedence: built-in defaults < this file < command-line flags.
-# Any key omitted here falls back to the script default.
-
-[general]
-outdir = "."
-
-[wordlists]
-dir_wordlist = "/usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-big.txt"
-vhost_wordlist = "/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
-
-[performance]
-rate = 1000              jhoff.cfg# nmap --min-rate for stage 1 full-port sweep
+rate = 1000              # nmap --min-rate for stage 1 full-port sweep
 workers = 4              # parallel web scans (ThreadPoolExecutor)
 gobuster_threads = 30    # gobuster -t per invocation; real load = workers * threads
 gobuster_timeout = 1800  # per-gobuster timeout (s); tarpit / hung-scan guard
