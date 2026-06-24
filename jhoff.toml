@@ -10,7 +10,7 @@ dir_wordlist = "/usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directo
 vhost_wordlist = "/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
 
 [performance]
-rate = 1000              jhoff.cfg# nmap --min-rate for stage 1 full-port sweep
+rate = 1000              jhoff.cfg # nmap --min-rate for stage 1 full-port sweep
 workers = 4              # parallel web scans (ThreadPoolExecutor)
 gobuster_threads = 30    # gobuster -t per invocation; real load = workers * threads
 gobuster_timeout = 1800  # per-gobuster timeout (s); tarpit / hung-scan guard
