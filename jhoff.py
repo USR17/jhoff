@@ -483,7 +483,7 @@ def run_gobuster(
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Web application recon pipeline")
     p.add_argument("target", help="Target IP or hostname (must be in engagement scope)")
-    p.add_argument("-c", "--config", help="Path to webrecon.cfg")
+    p.add_argument("-c", "--config", help="Path to jhoff.cfg")
     # Defaults are None so we can distinguish 'user set it' from 'use cfg/default'.
     p.add_argument("-o", "--outdir", default=None, help="Base output directory")
     p.add_argument("-w", "--dir-wordlist", dest="dir_wordlist", default=None, help="Wordlist for gobuster dir")
