@@ -40,7 +40,7 @@ skip_vhost = false
 # username = "svc_backup"
 # nthash   = "aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0"
 # domain   = "CORP"
-# webrecon.toml — standing configuration for webrecon.py
+# jhoff.toml — standing configuration for webrecon.py
 # Precedence: built-in defaults < this file < command-line flags.
 # Any key omitted here falls back to the script default.
 
