@@ -10,7 +10,7 @@ Pipeline:
 Web detection is service-driven (nmap XML), not port-based.
 Stage 3 dispatches per-service jobs in parallel via ThreadPoolExecutor.
 
-Gobuster wildcard handling:So
+Gobuster wildcard handling:
   gobuster aborts when a target returns a wildcard/soft-404 response. The
   reported response length is captured and added to an accumulating
   --exclude-length set, then the scan is retried (bounded). Multiple distinct
@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import ipaddress
 import re
 import shutil
 import subprocess
@@ -184,7 +185,6 @@ def run_captured(cmd: list[str], timeout: int | None = None) -> tuple[int, str]:
 
 def is_ip_literal(target: str) -> bool:
     """True if target is an IPv4 or IPv6 literal (not a hostname)."""
-    import ipaddress
     try:
         ipaddress.ip_address(target)
         return True
@@ -521,8 +521,6 @@ def main() -> None:
     outdir = Path(s.outdir) / target.replace("/", "_")
     outdir.mkdir(parents=True, exist_ok=True)
 
-    if not s.dir_wordlist:
-        sys.exit("[!] No dir wordlist set (use -w or set wordlists.dir_wordlist in cfg).")
     # Wordlists are only required if the web stage will actually run.
     dir_wl: Path | None = None
     vhost_wl: Path | None = None
